@@ -1,5 +1,5 @@
 # Overview
-
+This personal project represents an ETL job I performed on some sample cooking recipe data.
 For this project, I performed an ETL of cooking recipes using  Python, SQL, and a docker container I found from: https://github.com/jplane/pyspark-devcontainer
 
 # Tools used

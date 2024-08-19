@@ -9,6 +9,7 @@ Python (Scripts and Notebooks), SQL, Docker, VSCode, Git
 1. I extracted data from JSON files into PySpark dataframes
 2. Transformations: Add columns to convert ISO 8601 duration into minutes. Sum cook and prep time columns. Create SQL temp views for custom logic to aggregate recipes based on difficulties.
 3. Write data to output folder in CSV format
+4. For unit testing, I performed 3 tests on expected vs. actual results for: 1. Initial loading of data into dataframes, column name validation, final results for dataframes.
 
 # Special Thanks
 1. https://github.com/jplane/pyspark-devcontainer  -> Github repository I originally cloned and used for my docker container

@@ -1,47 +1,18 @@
-# Local PySpark dev environment
+# Overview
 
-This repo provides everything needed for a self-contained, local PySpark 1-node "cluster" running on your laptop, including a Jupyter notebook environment.
+For this project, I performed an ETL of cooking recipes using  Python, SQL, and a docker container I found from: https://github.com/jplane/pyspark-devcontainer
 
-It uses [Visual Studio Code](https://code.visualstudio.com/) and the [devcontainer feature](https://code.visualstudio.com/docs/devcontainers/containers) to run the Spark/Jupyter server in Docker, connected to a VS Code dev environment frontend.
+# Tools used
+Python (Scripts and Notebooks), SQL, Docker, VSCode, Git
 
-## Requirements
+# Approach
+1. I extracted data from JSON files into PySpark dataframes
+2. Transformations: Add columns to convert ISO 8601 duration into minutes. Sum cook and prep time columns. Create SQL temp views for custom logic to aggregate recipes based on difficulties.
+3. Write data to output folder in CSV format
 
-- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (you don't have to be a Docker super-expert :-))
+# Special Thanks
+1. https://github.com/jplane/pyspark-devcontainer  -> Github repository I originally cloned and used for my docker container
+2. https://stackoverflow.com/questions/69735290/apache-spark-parse-pt2h5m-duration-iso-8601-duration-in-minutes  -> Helped me understand how to convert ISO 8601 columns
+3. Youtube channel "CodewithAJN". Thank you to Ajay Negi for helping me understand how to create my own Python venv's for Spark!
 
-- Install [Visual Studio Code](https://code.visualstudio.com/download)
 
-- Install the [VS Code Remote Development pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
-
-## Setup
-
-1. Install required tools 
-
-1. Git clone this repo to your laptop
-
-1. Open the local repo folder in VS Code
-
-1. Open the [VS Code command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and select/type 'Reopen in Container'
-
-1. Wait while the devcontainer is built and initialized, this may take several minutes
-
-1. Open [test.ipynb](./test.ipynb) in VS Code
-
-1. If you get an HTTP warning, click 'Yes'
-
-    ![HTTP warning](./media/http_warning.png)
-
-1. Wait a few moments for the Jupyter kernel to initialize... if after about 30 seconds or so the button on the upper-right still says 'Select Kernel', click that and select the option with 'ipykernel'
-
-    ![Choose kernel](./media/select_kernel.png)
-
-    ![ipykernel](./media/ipykernel.png)
-
-1. Run the first cell... it will take a few seconds to initialize the kernel and complete. You should see a message to browse to the Spark UI... click that for details of how your Spark session executes the work defined in your notebook on your 1-node Spark "cluster"
-
-    ![job output](./media/view_spark_job.png)
-
-1. Run the remaining cells in the notebook, in order... see the output of cell 3
-
-    ![output](./media/output.png)
-
-1. Have fun exploring [PySpark](https://sparkbyexamples.com/pyspark-tutorial/)!
